@@ -25,7 +25,9 @@ const drinks = [
 
 function createdrinkButton() {
   let beverage = document.getElementById('beverage');
+  beverage.innerHTML = "";
   
+  // 음료 버튼 생성
   for (let drink of drinks) {
     let button = document.createElement('button');
     button.textContent = `${drink.drinkName}(${drink.price}원, 재고 수 ${drink.stock})`;
@@ -53,17 +55,24 @@ function createdrinkButton() {
         output.insertAdjacentHTML("afterbegin", `<h1>${drink.drinkName} 재고가 없어 구입할 수 없습니다.</h1>`);
         drink.stock = 0;
       }
+      createdrinkButton();
     });
     // beverage 노드에 버튼 추가
     beverage.appendChild(button);
     
-    // // 구입 가능한 음료 배경 색상 변경
+    // 구입 가능한 음료 배경 색상 변경
     if (input_amount >= drink.price) {
       button.classList.add('buydrink');
     }
   }
 }
 createdrinkButton();
+
+function click() {
+  //
+  document.getElementById('beverage').innerHTML = "";
+  createdrinkButton();
+}
 
 // 100원 클릭 시
 document.getElementById("100").onclick = function() {
@@ -76,8 +85,7 @@ document.getElementById("100").onclick = function() {
   }
   document.getElementById("My_wallet").value = My_wallet;
   document.getElementById("input_amount").value = input_amount;
-  document.getElementById('beverage').innerHTML = "";
-  createdrinkButton();
+  click();
 }
 
 // 500원 클릭 시
@@ -91,8 +99,7 @@ document.getElementById("500").onclick = function() {
   }
   document.querySelector("#My_wallet").value = My_wallet;
   document.getElementById("input_amount").value = input_amount;
-  document.getElementById('beverage').innerHTML = "";
-  createdrinkButton();
+  click();
 }
 
 // 1000원 클릭 시
@@ -106,6 +113,5 @@ document.getElementById("1000").onclick = function() {
   }
   document.querySelector("#My_wallet").value = My_wallet;
   document.getElementById("input_amount").value = input_amount;
-  document.getElementById('beverage').innerHTML = "";
-  createdrinkButton();
+  click();
 }
