@@ -4,6 +4,14 @@ let input_amount = 0;               // 투입 금액
 let My_wallet = 10000;              // 내 지갑
 let output = document.getElementById("output_box");
 
+// 자판기 초기 금액 페이지 출력
+function input() {
+  document.getElementById("machine_total_balance").value = 1000;  // 자판기 총 잔액
+  document.getElementById("input_amount").value = 0;              // 투입 금액
+  document.getElementById("My_wallet").value = 10000;             // 내 지갑
+}
+input();  // 함수 실행
+
 // 음료 정보
 const drinks = [
   {drinkName : "코카콜라", price : 700, stock : 5},
@@ -21,7 +29,7 @@ function createdrinkButton() {
   for (let drink of drinks) {
     let button = document.createElement('button');
     button.textContent = `${drink.drinkName}(${drink.price}원, 재고 수 ${drink.stock})`;
-    
+
     // 음료 버튼 클릭 시
     button.addEventListener('click', () => {
       // 재고 수가 0보다 클 경우
@@ -48,26 +56,14 @@ function createdrinkButton() {
     });
     // beverage 노드에 버튼 추가
     beverage.appendChild(button);
-
+    
     // 구입 가능한 음료 배경 색상 변경
     if (input_amount >= drink.price) {
-      // button.style.backgroundColor = 'buydrink';
       button.style.backgroundColor = 'yellow';
-      // button.classList = "buydrink";
     }
-    // button.style.backgroundColor = 'yellow';
   }
 }
 createdrinkButton();
-
-
-// 자판기 초기 금액 페이지 출력
-function input() {
-  document.getElementById("machine_total_balance").value = 1000;  // 자판기 총 잔액
-  document.getElementById("input_amount").value = 0;              // 투입 금액
-  document.getElementById("My_wallet").value = 10000;             // 내 지갑
-}
-input();  // 함수 실행
 
 // 100원 클릭 시
 document.getElementById("100").onclick = function() {
