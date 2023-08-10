@@ -57,9 +57,9 @@ function createdrinkButton() {
     // beverage 노드에 버튼 추가
     beverage.appendChild(button);
     
-    // 구입 가능한 음료 배경 색상 변경
+    // // 구입 가능한 음료 배경 색상 변경
     if (input_amount >= drink.price) {
-      button.style.backgroundColor = 'yellow';
+      button.classList.add('buydrink');
     }
   }
 }
@@ -76,6 +76,8 @@ document.getElementById("100").onclick = function() {
   }
   document.getElementById("My_wallet").value = My_wallet;
   document.getElementById("input_amount").value = input_amount;
+  document.getElementById('beverage').innerHTML = "";
+  createdrinkButton();
 }
 
 // 500원 클릭 시
@@ -89,6 +91,8 @@ document.getElementById("500").onclick = function() {
   }
   document.querySelector("#My_wallet").value = My_wallet;
   document.getElementById("input_amount").value = input_amount;
+  document.getElementById('beverage').innerHTML = "";
+  createdrinkButton();
 }
 
 // 1000원 클릭 시
@@ -102,4 +106,6 @@ document.getElementById("1000").onclick = function() {
   }
   document.querySelector("#My_wallet").value = My_wallet;
   document.getElementById("input_amount").value = input_amount;
+  document.getElementById('beverage').innerHTML = "";
+  createdrinkButton();
 }
