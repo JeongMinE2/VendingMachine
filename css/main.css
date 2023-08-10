@@ -1,20 +1,23 @@
 #coin button {
   margin-right: 5px;
   padding: 5px;
-  font-size: 20px;
+  font-size: 25px;
 }
 
 #money input {
+  margin: 0 10px;
   width: 200px;
-  height: 25px;
+  height: 30px;
+  font-size: 20px;
 }
 
-#drinking button {
+#beverage button {
   margin: 5px;
   padding: 5px;
+  font-size: 20px;
 }
 
-#drinking button span {
+#beverage button span {
   font-size: 18px;
 }
 
@@ -27,4 +30,8 @@
 
 #output_box::-webkit-scrollbar {
   display: none;
+}
+
+.buydrink {
+  background-color: yellow;
 }
